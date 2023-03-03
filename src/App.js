@@ -26,7 +26,7 @@ const App = () => {
     axios.get('https://swapi.dev/api/people/')
       .then(res => {
         //console.log(res.data);
-        res.data.foreach(() => setPerson(res.data));
+        setPerson(res.data);
       })
       .catch(err => console.error(err))
   }, [])
@@ -34,7 +34,9 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="Header">Characters</h1>
-      { person && <Character attr={person} /> }
+      { person.map( elem => {
+        <Character attr={elem} />
+      })};
     </div>
   );
 }
