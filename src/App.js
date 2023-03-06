@@ -35,7 +35,7 @@ const App = () => {
     <div className="App">
       <h1 className="Header">Characters</h1>
       { person.map( elem => {
-        <Character attr={elem} />
+        return <Character attr={elem} />
       })};
     </div>
   );
